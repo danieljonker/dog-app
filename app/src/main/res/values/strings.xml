@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Dogs App</string>
+    <string name="app_name">Fetch</string>
     <string name="title_activity_main">MainActivity</string>
 </resources>
