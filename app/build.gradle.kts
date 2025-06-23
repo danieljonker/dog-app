@@ -43,6 +43,7 @@ android {
 dependencies {
     implementation(project(":breedlist"))
     implementation(project(":networking"))
+    implementation(project(":design"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

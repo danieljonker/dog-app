@@ -11,21 +11,19 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsIgnoringVisibility
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.intl.Locale
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import nz.co.jonker.breedlist.domain.BreedListItem
+import nz.co.jonker.design.components.TopAppBarComponent
+import nz.co.jonker.design.theme.DogsAppTheme
 import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -55,25 +53,6 @@ fun BreedListScreen(
     }
 }
 
-//todo: move to core design/ui module
-@Composable
-fun TopAppBarComponent(text: String) {
-    CenterAlignedTopAppBar(
-        modifier = Modifier,
-        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-            titleContentColor = MaterialTheme.colorScheme.primary,
-        ),
-        title = {
-            Text(
-                text,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
-        },
-    )
-}
-
 @Composable
 fun BreedRow(
     modifier: Modifier = Modifier,
@@ -89,16 +68,9 @@ fun BreedRow(
 
 @Preview(showBackground = false)
 @Composable
-fun TopAppBarPreview() {
-    TopAppBarComponent("This is a top bar")
-}
-
-//todo: move theme code to lower module
-@Preview(showBackground = false)
-@Composable
 fun BreedRowPreview() {
-//    DogsAppTheme {
-    BreedRow(breed = BreedListItem(breedName = "labrador"))
-//    }
+    DogsAppTheme {
+        BreedRow(breed = BreedListItem(breedName = "labrador"))
+    }
 }
 

@@ -1,4 +1,4 @@
-package nz.co.jonker.dogsapp.ui.theme
+package nz.co.jonker.design.theme
 
 import androidx.compose.ui.graphics.Color
 

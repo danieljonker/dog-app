@@ -16,10 +16,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import kotlinx.serialization.Serializable
 import nz.co.jonker.breedlist.presentation.BreedListScreen
+import nz.co.jonker.design.theme.DogsAppTheme
 import nz.co.jonker.dogsapp.di.initialiseKoin
-import nz.co.jonker.dogsapp.ui.theme.DogsAppTheme
 
-//todo: move to
+//todo: move to feature modules
 @Serializable
 object BreedList
 
@@ -40,11 +40,12 @@ class MainActivity : ComponentActivity() {
 
         enableEdgeToEdge()
         setContent {
-            DogsAppTheme {
+            DogsAppTheme() {
                 val navController = rememberNavController()
                 Scaffold(
                     contentWindowInsets = WindowInsets.systemBarsIgnoringVisibility,
-                    modifier = Modifier.fillMaxSize()) {
+                    modifier = Modifier.fillMaxSize()
+                ) {
 
                     NavHost(
                         navController,

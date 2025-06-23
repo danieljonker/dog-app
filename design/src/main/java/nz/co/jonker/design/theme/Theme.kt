@@ -1,4 +1,4 @@
-package nz.co.jonker.dogsapp.ui.theme
+package nz.co.jonker.design.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -10,7 +10,6 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 //todo: update colour scheme to match icon
-//todo: can we move this to a common module
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
