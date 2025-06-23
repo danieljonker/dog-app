@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Dogs App"
 include(":app")
+include(":breedlist")
+include(":networking")

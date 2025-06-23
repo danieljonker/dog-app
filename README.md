@@ -1,5 +1,6 @@
 
-# Dog Breed Viewer App
+# Fetch App
+Fetch - Fetching the best dog breed images from the internet 
 
 ## Architecture and Design
 The app is built with a lightweight clean architecture style (avoiding unnecessary complexity where possible), using MVVM for the presentation layer, and repositories for the data layer.
