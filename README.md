@@ -23,12 +23,13 @@ The app uses a mixture of testing libraries and techniques to ensure it has a hi
 - JUnit4 - unit testing
 - Mockk - mocking library
 - test-paramater-injector - paramaterise unit tests - allowing to test multiple combinations easily
+- Paparazzi - snapshot image tool - note I've not pushed the snapshots to github for this, you need to record them first
 
 
 ## Running the app/tests
 To run the app, you can use Android Studio, or install from terminal using `./gradlew installDebug`
 To run the tests you can run them from the gradle menu inside Android Studio or with `./gradlew testDebugUnitTest`
-To run the snapshots tests you can run the from the gradle menu or with `./gradlew verifyPaparazziDebug`
+To run the snapshots tests you can run the from the gradle menu or with `./gradlew recordPaparazziDebug` and `./gradlew verifyPaparazziDebug`
 
 ## Image caching 
 For image loading, I've used coil with the standard coil setup, I've included the out of the box disk cache setup which can be seen in FetchApplication
@@ -37,6 +38,7 @@ For image loading, I've used coil with the standard coil setup, I've included th
 I didn't have a lot of time to work on this due to other commitments, so couldn't quite squeeze everything I'd like in.
 
 With more time I'd have made the following additions:
+- Add loading and error states into the UI
 - More thorough testing, including full journey UI tests to validate the navigation and the paging of images
 - More polished UI, adding some branding, some animations and transitions
 - Koin tests to validate the DI graph
