@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.ktor.cio)
     implementation(libs.ktor.content.negotiation)
     implementation(libs.ktor.json)
+    implementation(libs.ktor.client.mock)
 
     // koin
     implementation(project.dependencies.platform(libs.koin.bom))

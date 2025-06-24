@@ -64,6 +64,7 @@ dependencies {
     // ktor
     implementation(libs.ktor.core)
     implementation(libs.ktor.cio)
+    testImplementation(libs.ktor.client.mock)
 
     testImplementation(libs.junit)
     testImplementation(libs.coroutines.test)

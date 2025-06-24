@@ -2,6 +2,7 @@
 
 package nz.co.jonker.breedlist.presentation
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.WindowInsets
@@ -24,12 +25,12 @@ import androidx.compose.ui.unit.dp
 import nz.co.jonker.breedlist.domain.BreedListItem
 import nz.co.jonker.design.components.TopAppBarComponent
 import nz.co.jonker.design.theme.DogsAppTheme
-import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun BreedListScreen(
-    viewModel: BreedListViewModel = koinViewModel()
+    viewModel: BreedListViewModel,
+    onBreedClickedHandler: (breedName: String) -> Unit,
 ) {
 
     val state = viewModel.screenState.collectAsState()
@@ -47,7 +48,7 @@ fun BreedListScreen(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(items = state.value.items) { item ->
-                BreedRow(breed = item)
+                BreedRow(breed = item, onClick = onBreedClickedHandler)
             }
         }
     }
@@ -57,10 +58,12 @@ fun BreedListScreen(
 fun BreedRow(
     modifier: Modifier = Modifier,
     breed: BreedListItem,
+    onClick: (String) -> Unit
 ) {
     Text(
         modifier = modifier
             .fillMaxWidth()
+            .clickable { onClick(breed.breedName) }
             .padding(horizontal = 16.dp, vertical = 8.dp),
         text = breed.breedName.capitalize(Locale.current)
     )
@@ -70,7 +73,6 @@ fun BreedRow(
 @Composable
 fun BreedRowPreview() {
     DogsAppTheme {
-        BreedRow(breed = BreedListItem(breedName = "labrador"))
+        BreedRow(breed = BreedListItem(breedName = "labrador"), onClick = {})
     }
 }
-

@@ -25,11 +25,19 @@ class TopAppBarComponentSnapshotTest {
             "",
             "TopAppBarComponent",
             "really long string do do do do do do do do etc.",
-        ) toolbarText: String
+        ) toolbarText: String,
+        @TestParameter hasUpNav: Boolean,
     ) {
         paparazzi.snapshot() {
             DogsAppTheme {
-                TopAppBarComponent(toolbarText)
+                TopAppBarComponent(
+                    text = toolbarText,
+                    onUpNavClicked = if (hasUpNav) {
+                        {}
+                    } else {
+                        null
+                    }
+                )
             }
         }
     }

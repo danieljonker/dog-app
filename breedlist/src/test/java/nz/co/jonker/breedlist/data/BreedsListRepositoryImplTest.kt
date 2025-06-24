@@ -43,4 +43,18 @@ class BreedsListRepositoryImplTest {
         val expected: Result<List<BreedListItem>> = Result.failure(expectedException)
         assertEquals(expected, result)
     }
+
+    @Test
+    fun `should return failure when mapping fails`() = runTest {
+        val expectedException = IllegalStateException("some error")
+
+        coEvery { breedsListApi.getAllBreeds() } returns TestData.breedsResponseDto
+        every { breedsListMapper.map(any()) } throws expectedException
+
+        val result = testSubject.getAllBreeds()
+
+        coVerify { breedsListApi.getAllBreeds() }
+        val expected: Result<List<BreedListItem>> = Result.failure(expectedException)
+        assertEquals(expected, result)
+    }
 }
