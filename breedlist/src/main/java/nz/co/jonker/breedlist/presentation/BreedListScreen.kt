@@ -28,7 +28,12 @@ fun BreedListScreen(
 ) {
     val state = viewModel.screenState.collectAsState()
 
-    BreedListScreenUi(state.value.items, onBreedClickedHandler)
+    when {
+        state.value.loading -> {}
+        state.value.isError -> {}
+        state.value.items.isEmpty() -> {}
+        else -> BreedListScreenUi(state.value.items, onBreedClickedHandler)
+    }
 }
 
 @OptIn(ExperimentalLayoutApi::class)
