@@ -16,7 +16,7 @@ The app uses a mixture of testing libraries and techniques to ensure it has a hi
 - Compose UI tests to ensure the journeys work together flawlessly   
 
 ## Library Choices
-- Ktor - networking client
+- Ktor - networking client - kotlin lightweight networking client - a bit more code than retrofit, but more explicit with what's happening and easy for porting to KMP
 - KotlinxSerialization - JSON serialisation
 - Coil - Image loading
 - Koin - DI - simpler/quicker option for DI than dagger/hilt - however can cause runtime exceptions
