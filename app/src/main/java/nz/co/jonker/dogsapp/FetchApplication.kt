@@ -8,9 +8,15 @@ import coil3.disk.DiskCache
 import coil3.disk.directory
 import coil3.network.okhttp.OkHttpNetworkFetcherFactory
 import coil3.request.crossfade
+import nz.co.jonker.dogsapp.di.initialiseKoin
 import okhttp3.OkHttpClient
 
 class FetchApplication : Application(), SingletonImageLoader.Factory {
+
+    override fun onCreate() {
+        super.onCreate()
+        initialiseKoin(this)
+    }
 
     override fun newImageLoader(context: Context): ImageLoader {
         return ImageLoader.Builder(context)

@@ -42,3 +42,4 @@ With more time I'd have made the following additions:
 - More thorough testing, including full journey UI tests to validate the navigation and the paging of images
 - More polished UI, adding some branding, some animations and transitions
 - Koin tests to validate the DI graph
+- Replace Result class with something more specific

@@ -17,7 +17,6 @@ import androidx.navigation.compose.rememberNavController
 import nz.co.jonker.breedlist.presentation.BreedListScreen
 import nz.co.jonker.breedview.presentation.BreedViewScreen
 import nz.co.jonker.design.theme.DogsAppTheme
-import nz.co.jonker.dogsapp.di.initialiseKoin
 import nz.co.jonker.networking.BreedList
 import nz.co.jonker.networking.BreedView
 import org.koin.androidx.compose.koinViewModel
@@ -28,15 +27,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        /*
-        typically this would be done in a splash screen or application class,
-        but to save time for this test I've just put it here
-        * */
-        initialiseKoin(application)
-
         enableEdgeToEdge()
         setContent {
-            DogsAppTheme() {
+            DogsAppTheme {
                 val navController = rememberNavController()
                 Scaffold(
                     contentWindowInsets = WindowInsets.systemBarsIgnoringVisibility,
